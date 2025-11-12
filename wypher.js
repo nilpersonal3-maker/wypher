@@ -58,18 +58,42 @@
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1437538250641379380/wyphelelelle.png?ex=69159593&is=69144413&hm=25f6f71bc4c54daa4a73941551b00c587b532ec8e52d5dc882f1aa14070a3d38&",
 		"https://cdn.discordapp.com/attachments/996564593914691625/1436833797084807199/nom_plushi.gif?ex=6915a880&is=69145700&hm=aae3a6d31fc421ee9d94ab45f2a5e3596a26f4d3361c2be8c0e8a7bc2471d804&",
 		"https://cdn.discordapp.com/attachments/996564593914691625/1407023450337575004/ezgif.com-animated-gif-maker_7.gif?ex=69155073&is=6913fef3&hm=4697c26aed33b02bdaeb89ba8ea0b3deb0ef15b73a5a03ed80d05ef0eeebdcf9&",
-		"https://tenor.com/view/heat-high-explosive-anti-tank-war-thunder-world-of-tanks-explosions-gif-4706706996510318551",
-		"https://tenor.com/view/boeing-boeing-quality-airplane-wheel-drop-airplane-drop-wheel-gif-135884565285573600",
-		"https://tenor.com/view/sabot-apfsds-tank-round-shell-gif-16221498582328486496",
-		"https://gif.fxtwitter.com/tweet_video/G3QrlalaoAAWt-T.gif",
+		"https://media1.tenor.com/m/AeLCSsxOE-AAAAAd/boeing-boeing-quality.gif",
+		"https://media1.tenor.com/m/4R5XA_QxKmAAAAAd/sabot-apfsds.gif",
 		"https://cdn.discordapp.com/attachments/1430848567127572562/1430848567832088637/memewmwem.gif?ex=6915a312&is=69145192&hm=602178480470264bc79a9146cd5af96708b1db0a5a0c063f455c6405567553a3&",
 		"https://cdn.discordapp.com/attachments/599530397663100950/1427874749379248148/images.png?ex=69155d7c&is=69140bfc&hm=7403efc120ceeb0c0e02ddf239e6994361fef234048d25ef13d0080fad3cab3f&",
-		"https://tenor.com/view/bradley-ifv-second-to-none-1982-fmc-gif-8220568578906290379",
+		"https://c.tenor.com/chVTkW1yeMsAAAAd/tenor.gif",
+		"https://cdn.discordapp.com/attachments/971760360245829712/1330216790655111271/3...gif?ex=691562ad&is=6914112d&hm=7250e9b144c3887f3ef0535554f97627b8c2b5b66cb14b5dba7796a4e6b1e83e&",
+		"https://cdn.discordapp.com/attachments/1146902658838429757/1385468740107505674/attachment.gif?ex=69160010&is=6914ae90&hm=573eb3cc036feb329ea09f494f0393e3663fd771733c5f82c7606f35d13d4c50&",
+		"https://cdn.discordapp.com/attachments/1112851420102799390/1362536059296284874/ezgif-82bc16feffda9a.gif?ex=6915a0d7&is=69144f57&hm=c5671ac012bde2da8c73d80ddff8aa37d0282d1deec16a274777eb51e6f0f702&",
+		"https://gif.fxtwitter.com/tweet_video/GKV191EXMAEQUYT.gif",
+		"https://cdn.discordapp.com/attachments/1287055108756209697/1338720763360051270/attachment.gif?ex=6916001e&is=6914ae9e&hm=69a4ed30c91624cd8d1e68be82511b8cbcd24fb436ddb9359e7b912470f6375d&",
+		"https://media1.tenor.com/m/y1srgTJg4SEAAAAd/cute-boykisser.gif",
+		"https://media.tenor.com/xpws-BQNHFAAAAAj/speech-bubble.gif",
+		"https://cdn.discordapp.com/attachments/1166124588166565968/1369083875887677462/IMG_0766.gif?ex=6915b7f8&is=69146678&hm=e2f1c9eb55b366e48e26ed42e845ed65a55262a396c30a4a409479a6502ea1b2&",
+		"https://cdn.discordapp.com/attachments/1316837413380689962/1370733696478347304/IMG_0130.gif?ex=6915c9bc&is=6914783c&hm=311ea212f7d92929f31d3115d0c2b8be7d428086c3e5b6addc5a4eec78957052&",
+		"https://cdn.discordapp.com/attachments/1117893073398141028/1375179786204483655/IMG_0176.gif?ex=69157bba&is=69142a3a&hm=05dddaefcca0ef44feb0c40da15a11cb3fc4e15b576e4838baf45e64c1272f67&",
+		"https://cdn.discordapp.com/attachments/1316837413380689962/1370732953969233941/IMG_0129.gif?ex=6915c90b&is=6914778b&hm=53ec24cb1733483591e3db878c701528035e983553eebcb81248e9558a23f3de&",
+		"https://media1.tenor.com/m/oDDLsswEuicAAAAd/%D1%84%D0%B5%D0%BC%D0%B1%D0%BE%D0%B9.gif",
+		"https://media1.tenor.com/m/a5dhLFyv4I8AAAAd/boykisser-kissingboys.gif",
+		"https://media1.tenor.com/m/kv7sB6VzQHIAAAAd/boykisser.gif",
 	];
 
-    function getRandomImage() {
-        return images[Math.floor(Math.random() * images.length)];
-    }
+    let shuffled = [];
+	let current = 0;
+
+	function getRandomImage() {
+	  if (current === 0 || current >= shuffled.length) {
+		shuffled = [...images];
+		for (let i = shuffled.length - 1; i > 0; i--) {
+		  const j = Math.floor(Math.random() * (i + 1));
+		  [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+		}
+		current = 0;
+	  }
+	  return shuffled[current++];
+	}
+
 
     function applyBackground(imgUrl) {
         document.documentElement.style.setProperty('--app-background', `url("${imgUrl}")`);
