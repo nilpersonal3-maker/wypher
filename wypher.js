@@ -146,8 +146,9 @@
 
         setInterval(() => {
             applyBackground(getRandomImage());
-        }, 5000);
+        }, 30000);
     }
 
     waitForVencord();
 })();
+
