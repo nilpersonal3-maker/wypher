@@ -5,6 +5,7 @@
 
 (() => {
     const images = [
+		"https://cdn.discordapp.com/attachments/1439310390159868067/1439310390608531629/k_szk_gif.gif?ex=691a0dc2&is=6918bc42&hm=d2e05d4d3226177c99ceef8629358543da91746e5a748572e4467774b4140237&",
 		"https://cdn.discordapp.com/attachments/996564593914691625/1439306075324157983/wyppy_nuzzle_plushy.gif?ex=691a09bd&is=6918b83d&hm=eda0160085e1a6fdce242418424f49854789646a5f555516d88329884027fa81&",
 		"https://cdn.discordapp.com/attachments/1436818866696093787/1436818868365430884/shy_sway.gif?ex=6914f1d9&is=6913a059&hm=e4fb5458f41afcbed48989245e0601a349324d3f0ffab3088f38db265e1cb519&",
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1410316713245020340/IMG_8768.png?ex=69156e0a&is=69141c8a&hm=b8fedece3e83665976d78bfdd7ae7ac18e6887e046b4cd8d663e21aab8961ab6&",
@@ -152,6 +153,7 @@
 
     waitForVencord();
 })();
+
 
 
 
