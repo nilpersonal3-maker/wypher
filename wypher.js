@@ -5,6 +5,7 @@
 
 (() => {
     const images = [
+		"https://tenor.com/view/ifv-m3tank-war-thunder-gif-25687496",
 		"https://cdn.discordapp.com/attachments/1436818866696093787/1436818868365430884/shy_sway.gif?ex=6914f1d9&is=6913a059&hm=e4fb5458f41afcbed48989245e0601a349324d3f0ffab3088f38db265e1cb519&",
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1410316713245020340/IMG_8768.png?ex=69156e0a&is=69141c8a&hm=b8fedece3e83665976d78bfdd7ae7ac18e6887e046b4cd8d663e21aab8961ab6&",
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1425727869815885976/uhh-i-hate-myself-for-this-v0-o9hotvlky9od1.png?ex=6915770c&is=6914258c&hm=bc9feb1f5f55bc73f3b3b1309427e0a3614420f0cfe7171fd2f24ffc29d89b9f&",
@@ -151,5 +152,6 @@
 
     waitForVencord();
 })();
+
 
 
