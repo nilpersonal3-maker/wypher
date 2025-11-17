@@ -11,6 +11,13 @@ export default class Wypha {
 
 (() => {
     const images = [
+		"https://cdn.discordapp.com/attachments/1390191351894638696/1439432744034893875/Illustration17.png?ex=691bd135&is=691a7fb5&hm=ceda83fdc640c2c18b7bae8b652d6cf2c194f059871d221ad5b2e0f5874ff5bf&",
+		"https://cdn.discordapp.com/attachments/1390191351894638696/1439432702419009717/IMG_3458.jpg?ex=691bd12b&is=691a7fab&hm=c5fa7705546ef1ccf69adc0742c609b57435e6e92b6ec6c8fe37e20e09b5c2e1&",
+		"https://cdn.discordapp.com/attachments/1390191351894638696/1439432718147391618/IMG_3457.jpg?ex=691bd12f&is=691a7faf&hm=9a2ff40b61c41423e0fed3dc6c93c0745c94d0eabc5a1edb4c6968ce5880537c&",
+		"https://cdn.discordapp.com/attachments/1390191351894638696/1439432585305657374/132_Sem_Titulo_20251101145917.png?ex=691bd10f&is=691a7f8f&hm=7584068c891a842af4835f0cc74e3b6d535317705027d9984eaa69e6af9d38b9&",
+		"https://cdn.discordapp.com/attachments/1390191351894638696/1439432556008444015/groggy_wyphle.png?ex=691bd108&is=691a7f88&hm=5fdc92008d017dbf46eb78e27a4743ff26998b54dabd9d7de9b22c0224809a9e&",
+		"https://cdn.discordapp.com/attachments/1390191351894638696/1439432726787784704/image.png?ex=691bd131&is=691a7fb1&hm=6cb7261ece8e556e36e3075b4948591719c59e8a274369241eea3af2b743569e&",
+		"https://cdn.discordapp.com/attachments/599530397663100950/1439676696574951516/G5y1h1NbsAAq4aq.png?ex=691c0ba8&is=691aba28&hm=bb0313c88ee5c67a4abeee8d79586350bedbf1d74506f76bb448ee9805628518&",
 		"https://cdn.discordapp.com/attachments/1439310390159868067/1439310390608531629/k_szk_gif.gif?ex=691a0dc2&is=6918bc42&hm=d2e05d4d3226177c99ceef8629358543da91746e5a748572e4467774b4140237&",
 		"https://cdn.discordapp.com/attachments/996564593914691625/1439306075324157983/wyppy_nuzzle_plushy.gif?ex=691a09bd&is=6918b83d&hm=eda0160085e1a6fdce242418424f49854789646a5f555516d88329884027fa81&",
 		"https://cdn.discordapp.com/attachments/1436818866696093787/1436818868365430884/shy_sway.gif?ex=6914f1d9&is=6913a059&hm=e4fb5458f41afcbed48989245e0601a349324d3f0ffab3088f38db265e1cb519&",
@@ -210,3 +217,4 @@ export default class Wypha {
 	}
 	waitForVencord();
 })();
+
