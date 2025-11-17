@@ -26,7 +26,6 @@ export default class Wypha {
 	  return data.filter(f => f.type === "file").map(f => f.download_url);
 	}
 	
-	getGithubImages().then(urls => console.log(urls));
 
     function applyBackground(imgUrl) {
         document.documentElement.style.setProperty('--app-background', `url("${imgUrl}")`);
@@ -76,9 +75,11 @@ export default class Wypha {
         }
 
         applyBackground(getNextImage());
+	getGithubImages().then(urls => console.log(urls));
 
         setInterval(() => {
             applyBackground(getNextImage());
+				getGithubImages().then(urls => console.log(urls));
         }, 30000);
     }
 
@@ -86,6 +87,7 @@ export default class Wypha {
 
 
 })();
+
 
 
 
