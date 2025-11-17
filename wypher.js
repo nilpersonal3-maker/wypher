@@ -15,16 +15,15 @@ export default class Wypha {
 
 	let current = 0;
 
-	function getNextImage() {
-	    if (current >= images.length) current = 0;
-	    return images[current++];
-	}
-	async function getGithubImages() {
-	  const url = "https://api.github.com/repos/nilpersonal3-maker/wypherrr/contents/";
-	  const res = await fetch(url);
-	  const data = await res.json();
-	  return data.filter(f => f.type === "file").map(f => f.download_url);
-	}
+	let currentIndex = 0;
+
+async function getNextImage() {
+    const res = await fetch("https://api.github.com/repos/nilpersonal3-maker/wypherrr/contents/");
+    const data = await res.json();
+    const file = data[currentIndex % data.length];
+    currentIndex++;
+    return file.download_url;
+}
 	
 
     function applyBackground(imgUrl) {
@@ -73,13 +72,11 @@ export default class Wypha {
             requestAnimationFrame(waitForVencord);
             return;
         }
-
         applyBackground(getNextImage());
 	getGithubImages().then(urls => console.log(urls));
 
         setInterval(() => {
             applyBackground(getNextImage());
-				getGithubImages().then(urls => console.log(urls));
         }, 30000);
     }
 
@@ -87,6 +84,7 @@ export default class Wypha {
 
 
 })();
+
 
 
 
