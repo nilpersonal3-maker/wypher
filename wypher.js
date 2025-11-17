@@ -89,139 +89,71 @@ export default class Wypha {
 	];
 
 	let current = 0;
-	let nextPreload = null;
-	let cssApplied = false;
-	
+
 	function getNextImage() {
-	    const img = images[current];
-	    current = (current + 1) % images.length;
-	    return img;
+	    if (current >= images.length) current = 0;
+	    return images[current++];
 	}
-	
-	function preload(url) {
-	    return new Promise((resolve, reject) => {
-	        const img = new Image();
-	        let done = false;
-	
-	        const finish = (v, err = false) => {
-	            if (done) return;
-	            done = true;
-	            err ? reject(v) : resolve(v);
-	        };
-	
-	        img.onerror = () => finish(url, true);
-	        img.onload = () => finish(url);
-	        img.src = url;
-	
-	        setTimeout(() => finish(url), 250);
-	    });
-	}
-	
-	async function loadValid() {
-	    const url = getNextImage();
-	    try {
-	        return await preload(url);
-	    } catch {
-	        return loadValid();
-	    }
-	}
-	
-	async function getImage() {
-	    if (!nextPreload) nextPreload = loadValid();
-	    const url = await nextPreload;
-	    nextPreload = loadValid();
-	    return url;
-	}
-	
-	function applyBackground(url) {
-	    let fadeLayer = document.getElementById("bg-fade-layer");
-	    if (!fadeLayer) {
-	        fadeLayer = document.createElement("div");
-	        fadeLayer.id = "bg-fade-layer";
-	        fadeLayer.style.position = "fixed";
-	        fadeLayer.style.top = 0;
-	        fadeLayer.style.left = 0;
-	        fadeLayer.style.right = 0;
-	        fadeLayer.style.bottom = 0;
-	        fadeLayer.style.zIndex = "-2";
-	        fadeLayer.style.opacity = "0";
-	        fadeLayer.style.transition = "opacity 0.8s ease-out";
-	        fadeLayer.style.willChange = "opacity";
-	        document.body.appendChild(fadeLayer);
-	    }
-	
-	    fadeLayer.style.opacity = "0";
-	    fadeLayer.style.backgroundImage = `url("${url}")`;
-	    fadeLayer.style.backgroundRepeat = "no-repeat";
-	    fadeLayer.style.backgroundPosition = "center center";
-	    fadeLayer.style.backgroundSize = "100% 100%`;
-	
-	    requestAnimationFrame(() => {
-	        fadeLayer.style.opacity = "1";
-	    });
-	
-	    if (!cssApplied) {
-	        cssApplied = true;
-	        const s = document.createElement("style");
-	        s.id = "vencord-bg-style";
-	        s.textContent = `
-	            [class*=messagesWrapper] [class*=newTopicsBarContainer]::before,
-	            [class*=stickyHeaderElevated]::before,
-	            [class*=panels]::before,
-	            [class*=floating]::before,
-	            [class*=directoryModal] {
-	                background-image: url("__BG__");
-	                background-repeat: no-repeat !important;
-	                background-size: 100% 100% !important;
-	                background-position: center center !important;
-	                background-attachment: fixed !important;
-	                background-blend-mode: multiply;
-	                transition: background 1s ease-in-out;
-	            }
-	
-	            body::after {
-	                content: "";
-	                position: fixed;
-	                top: 0; left: 0; right: 0; bottom: 0;
-	                z-index: -1;
-	                pointer-events: none;
-	                background-image: url("__BG__");
-	                background-color: rgba(0,0,0,0.7) !important;
-	                background-repeat: no-repeat !important;
-	                background-size: 100% 100% !important;
-	                background-position: center center !important;
-	                background-blend-mode: multiply;
-	                transition: background 1s ease-in-out;
-	            }
-	        `;
-	        document.head.appendChild(s);
-	    }
-	
-	    const s = document.getElementById("vencord-bg-style");
-	    s.textContent = s.textContent.replace(/__BG__/g, url);
-	}
-	
-	async function updateBackground() {
-	    const url = await getImage();
-	    if (!url) return;
-	    applyBackground(url);
-	}
-	
-	function waitForVencord() {
-	    const p = document.querySelector("[class*=panels]");
-	    if (!p) {
-	        requestAnimationFrame(waitForVencord);
-	        return;
-	    }
-	
-	    updateBackground();
-	    setInterval(updateBackground, 15000);
-	}
-	
-	waitForVencord();
+
+    function applyBackground(imgUrl) {
+        document.documentElement.style.setProperty('--app-background', `url("${imgUrl}")`);
+
+        const style = document.createElement('style');
+        style.id = 'vencord-bg-style';
+        style.textContent = `
+            [class*=messagesWrapper] [class*=newTopicsBarContainer]::before,
+            [class*=stickyHeaderElevated]::before,
+            [class*=panels]::before,
+            [class*=floating]::before,
+            [class*=directoryModal] {
+                background-image: url('${imgUrl}') !important;
+                background-color: white !important;
+                background-repeat: no-repeat !important;
+                background-size: 100% 100% !important; /* STRETCH X/Y */
+                background-position: center center !important;
+                background-attachment: fixed !important;
+                background-blend-mode: multiply;
+                transition: background 1s ease-in-out;
+            }
+
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                z-index: -1;
+                pointer-events: none;
+                background-image: url('${imgUrl}') !important;
+                background-color: rgba(0,0,0,0.7) !important; /* DARK overlay */
+                background-repeat: no-repeat !important;
+                background-size: 100% 100% !important; /* STRETCH X/Y */
+                background-position: center center !important;
+                background-blend-mode: multiply;
+                transition: background 1s ease-in-out;
+            }
+        `;
+        document.head.appendChild(style);
+        console.log("Vencord background set to:", imgUrl);
+    }
+
+    function waitForVencord() {
+        const panels = document.querySelector('[class*=panels]');
+        if (!panels) {
+            requestAnimationFrame(waitForVencord);
+            return;
+        }
+
+        applyBackground(getNextImage());
+
+        setInterval(() => {
+            applyBackground(getNextImage());
+        }, 30000);
+    }
+
+    waitForVencord();
 
 
 })();
+
 
 
 
