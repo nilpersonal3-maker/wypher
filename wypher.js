@@ -12,6 +12,9 @@ export default class Wypha {
 (() => {
     const images = [
 		"https://cdn.discordapp.com/attachments/1439310390159868067/1439310390608531629/k_szk_gif.gif",
+		"https://cdn.discordapp.com/attachments/1390191351894638696/1437840972623904921/Grdu2gbacAARIzQ.png",
+		"https://cdn.discordapp.com/attachments/1390191351894638696/1437840972623904921/Grdu2gbacAARIzQ.png",
+		"https://cdn.discordapp.com/attachments/1390191351894638696/1437840972623904921/Grdu2gbacAARIzQ.png",
 		"https://cdn.discordapp.com/attachments/1436818866696093787/1436818868365430884/shy_sway.gif",
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1410316713245020340/IMG_8768.png",
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1425727869815885976/uhh-i-hate-myself-for-this-v0-o9hotvlky9od1.png?ex=6915770c&is=6914258c&hm=bc9feb1f5f55bc73f3b3b1309427e0a3614420f0cfe7171fd2f24ffc29d89b9f&",
@@ -59,7 +62,6 @@ export default class Wypha {
 		"https://cdn.discordapp.com/attachments/1363603252792266964/1366325856011812874/rapidsave.com_850ugwhxzzhe1_1.gif?ex=6915929d&is=6914411d&hm=e67b631f0baabb821827deba9f374a88da410323e73ddd160476174d92162bec&",
 		"https://cdn.discordapp.com/attachments/996564593914691625/1437132715030741175/stretchy_gif.gif?ex=69156d63&is=69141be3&hm=99c28e145da2ea2e4126504dd43c77e40d7fe10b56cea1108442efabcb87e1cd&",
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1437841048603725874/GiEVZjzagAAYn_V.png?ex=69155e13&is=69140c93&hm=7075c1b42a5b66fde0692ef2d64c8daa912d9ac32f36140162af10c499041ba3&",
-		"https://cdn.discordapp.com/attachments/1390191351894638696/1437840972623904921/Grdu2gbacAARIzQ.png?ex=69155e01&is=69140c81&hm=590dde48a43025141a3656bcc1c079254cd9378628f1680c526ea4606842bf8f&",
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1437538643223773284/9k.png?ex=691595f0&is=69144470&hm=45dc06ffab1c2f71e9abad6aee2616d615fbb34c5939c3cbf9d727bcc86dd31b&",
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1437538252692258867/wypher_poink.png?ex=69159593&is=69144413&hm=74152c40822ad3f18870f85fca11627c9f28b66f4f4ff55448240c450d9a8dc5&",
 		"https://cdn.discordapp.com/attachments/1390191351894638696/1437538250641379380/wyphelelelle.png?ex=69159593&is=69144413&hm=25f6f71bc4c54daa4a73941551b00c587b532ec8e52d5dc882f1aa14070a3d38&",
@@ -152,6 +154,7 @@ export default class Wypha {
 
 
 })();
+
 
 
 
