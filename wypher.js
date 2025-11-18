@@ -11,17 +11,19 @@ export default class Wypha {
 
 (() => {
 
-	let currentIndex = 0;
 	let overlays = [];
 	let active = 0;
 	
 	async function getNextImage() {
 	    const res = await fetch("https://api.github.com/repos/nilpersonal3-maker/wypherrr/contents/");
 	    const data = await res.json();
-	    const file = data[currentIndex % data.length];
-	    currentIndex++;
+	    if (!data.length) return null;
+	
+	    const randomIndex = Math.floor(Math.random() * data.length);
+	    const file = data[randomIndex];
 	    return file.download_url;
 	}
+
 	
 	function preloadImage(url) {
 	    const img = new Image();
@@ -53,15 +55,12 @@ export default class Wypha {
 	    if (overlays.length < 2) {
 	        overlays.push(createOverlay());
 	        overlays.push(createOverlay());
-	    }
-	
+		}
 	    const next = 1 - active;
 	    overlays[next].style.backgroundImage = `url('${imgUrl}')`;
 	    overlays[next].style.opacity = '1';
 	    overlays[active].style.opacity = '0';
-	
 	    active = next;
-	    console.log("Vencord background set to:", imgUrl);
 	}
 	
 	function waitForVencord() {
@@ -75,6 +74,7 @@ export default class Wypha {
 	}
 	waitForVencord();
 })();
+
 
 
 
