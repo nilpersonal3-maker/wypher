@@ -73,5 +73,7 @@ export default class Wypha {
 	    applyNextBackground();
 	    setInterval(applyNextBackground, 30000);
 	}
+	waitForVencord();
 })();
+
 
