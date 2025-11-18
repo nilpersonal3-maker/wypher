@@ -73,8 +73,6 @@ async function getNextImage() {
             return;
         }
         applyBackground(getNextImage());
-	getGithubImages().then(urls => console.log(urls));
-
         setInterval(() => {
             applyBackground(getNextImage());
         }, 30000);
@@ -84,6 +82,7 @@ async function getNextImage() {
 
 
 })();
+
 
 
 
