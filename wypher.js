@@ -31,7 +31,7 @@ export default class Wypha {
 	    const imgUrl = await getNextImage();
 	    if (!imgUrl) return;
 	
-	    preloadImage(imgUrl); // preload for smooth transitions
+	    preloadImage(imgUrl);
 	
 	    if (!styleTag) {
 	        styleTag = document.createElement('style');
@@ -73,6 +73,7 @@ export default class Wypha {
 
 
 })();
+
 
 
 
