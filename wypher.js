@@ -26,7 +26,7 @@ async function getNextImage() {
 }
 	
 
-    function applyBackground(imgUrl) {
+async function applyBackground(imgUrl) {
         document.documentElement.style.setProperty('--app-background', `url("${imgUrl}")`);
 
         const style = document.createElement('style');
@@ -82,6 +82,7 @@ async function getNextImage() {
 
 
 })();
+
 
 
 
