@@ -39,7 +39,7 @@ export default class Wypha {
 	        document.head.appendChild(styleTag);
 	    }
 	
-	    styleTag.textContent = `
+	   styleTag.textContent = `
 	        [class*=messagesWrapper] [class*=newTopicsBarContainer]::before,
 	        [class*=stickyHeaderElevated]::before,
 	        [class*=panels]::before,
@@ -49,7 +49,7 @@ export default class Wypha {
 	            background-image: url('${imgUrl}') !important;
 	            background-color: rgba(0,0,0,0.7) !important;
 	            background-repeat: no-repeat !important;
-	            background-size: cover !important; 
+	            background-size: 100% 100% !important; /* KEEP original aspect scaling */
 	            background-position: center center !important;
 	            background-attachment: fixed !important;
 	            background-blend-mode: multiply;
@@ -73,6 +73,7 @@ export default class Wypha {
 
 
 })();
+
 
 
 
