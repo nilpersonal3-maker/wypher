@@ -5,8 +5,7 @@
  * @description Wypher <3 Optimized with fade
  */
 export default class Wypha {
-    start() {}
-    stop() {}
+
 }
 
 (() => {
@@ -74,6 +73,7 @@ export default class Wypha {
 	}
 	waitForVencord();
 })();
+
 
 
 
